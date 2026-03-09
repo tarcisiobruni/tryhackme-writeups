@@ -11,7 +11,7 @@ Learning Objectives
 
 sudo nano /etc/resolv-dnsmasq
 
-nameserver 10.66.183.122 <TARGET_IP_ADDRESS>
+nameserver <TARGET_IP_ADDRESS>
 
 
 ## Task 3
@@ -69,7 +69,7 @@ gobuster dns -d offensivetools.thm -w /usr/share/wordlists/SecLists/Discovery/DN
 Using GoBuster to enumerate virtual hosts
 
 ```bash
-gobuster vhost -u "http://10.66.183.122" --domain offensivetools.thm  -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt --append-domain --exclude-length 250-320 
+gobuster vhost -u "http://TARGET_IP" --domain offensivetools.thm  -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt --append-domain --exclude-length 250-320 
 
 --domain offensivetools.thm sets the top- and second-level domains in the Hostname: part of the request to offensivetools.thm.
 --append-domain appends the configured domain to each entry in the wordlist. If this flag is not configured, the set hostname would be www, blog, etc. This will cause the command to work incorrectly and display false positives.
